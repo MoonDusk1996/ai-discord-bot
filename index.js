@@ -5,7 +5,6 @@ const {
   Collection,
   Events,
   GatewayIntentBits,
-  messageLink,
 } = require("discord.js");
 const dotenv = require("dotenv");
 dotenv.config();
@@ -24,7 +23,7 @@ for (const file of commandFiles) {
 }
 
 client.once(Events.ClientReady, () => {
-  console.log("Ready!");
+  console.log("Online!");
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
@@ -39,7 +38,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
   } catch (error) {
     console.error(error);
     await interaction.reply({
-      content: "There was an error while executing this command!",
+      content: "Desculpe, Alguma coisa deu errada no servidor!",
       ephemeral: true,
     });
   }
