@@ -5,5 +5,5 @@
 #modules
 /node_modules
 
-#deploy
-.config
+#config deploy
+discloud.config
