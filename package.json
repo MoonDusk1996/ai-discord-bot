@@ -13,5 +13,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "dusk",
-  "license": "ISC"
+  "license": "MIT",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoonDusk1996/mary-jane-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MoonDusk1996/mary-jane-bot/issues"
+  },
+  "homepage": "https://github.com/MoonDusk1996/mary-jane-bot#readme"
 }
