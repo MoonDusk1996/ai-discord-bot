@@ -1,4 +1,9 @@
+# ambiente
 .vscode
 .env
+
+#modules
 /node_modules
-config.json
+
+#deploy
+.discloud.config
