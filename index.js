@@ -5,6 +5,7 @@ const {
   Collection,
   Events,
   GatewayIntentBits,
+  ActivityType,
 } = require("discord.js");
 const dotenv = require("dotenv");
 dotenv.config();
@@ -23,7 +24,8 @@ for (const file of commandFiles) {
 }
 
 client.once(Events.ClientReady, () => {
-  console.log("Online!");
+  client.user.setActivity("o Brasil no hard", { type: ActivityType.Playing });
+  console.log(`${client.user.username} está ${client.presence.status}`);
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
