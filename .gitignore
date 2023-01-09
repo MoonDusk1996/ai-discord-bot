@@ -6,4 +6,4 @@
 /node_modules
 
 #deploy
-.discloud.config
+.config
