@@ -24,12 +24,13 @@ for (const file of commandFiles) {
 }
 
 client.once(Events.ClientReady, () => {
-  console.log(client.guilds.cache.size);
-  console.log(`${client.user.username} está ${client.presence.status} em ${client.guilds.cache.size} servidores no discord!`);
+  console.log(
+    `${client.user.username} está ${client.presence.status} em ${client.guilds.cache.size} servidores no discord!`
+  );
+  client.user.setActivity("o Brasil no hard", { type: ActivityType.Playing });
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
-  client.user.setActivity("o Brasil no hard", { type: ActivityType.Playing });
   if (!interaction.isChatInputCommand()) return;
 
   const command = client.commands.get(interaction.commandName);
