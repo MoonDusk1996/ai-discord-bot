@@ -9,6 +9,7 @@ module.exports = {
     .addStringOption((option) =>
       option.setName("prompt").setDescription("prompt").setRequired(true)
     ),
+
   async execute(interaction, client) {
     const { Configuration, OpenAIApi } = require("openai");
     const configuration = new Configuration({
@@ -25,19 +26,34 @@ module.exports = {
       temperature: 0,
     });
 
-    const embed = new EmbedBuilder()
-      .setAuthor({
-        name: interaction.user.username,
-        iconURL: interaction.user.displayAvatarURL(),
-      })
-      .setDescription(interaction.options.getString("prompt"))
-      .addFields({
-        name: "Resposta:",
-        value: `${response.data.choices[0].text}`,
-        inline: true,
-      })
-      .setColor("#008000");
-
-    interaction.editReply({ embeds: [embed] });
+    if (response.data.choices[0].text.length < 1024) {
+      const embed = new EmbedBuilder()
+        .setAuthor({
+          name: interaction.user.username,
+          iconURL: interaction.user.displayAvatarURL(),
+        })
+        .setDescription(interaction.options.getString("prompt"))
+        .addFields({
+          name: "Resposta:",
+          value: `${response.data.choices[0].text}`,
+          inline: true,
+        })
+        .setColor("#008000");
+      interaction.editReply({ embeds: [embed] });
+    } else {
+      const embed = new EmbedBuilder()
+        .setAuthor({
+          name: interaction.user.username,
+          iconURL: interaction.user.displayAvatarURL(),
+        })
+        .setDescription(interaction.options.getString("prompt"))
+        .addFields({
+          name: "Resposta:",
+          value: `Desculpe, infelizmente essa resposta é muito grande para os padrões do Discord.`,
+          inline: true,
+        })
+        .setColor("#FF4500");
+      interaction.editReply({ embeds: [embed] });
+    }
   },
 };
