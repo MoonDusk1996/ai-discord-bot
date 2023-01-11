@@ -6,7 +6,6 @@ const {
   Events,
   GatewayIntentBits,
   ActivityType,
-  ButtonBuilder,
 } = require("discord.js");
 const dotenv = require("dotenv");
 const { channel } = require("node:diagnostics_channel");
