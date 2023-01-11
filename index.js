@@ -8,7 +8,7 @@ const {
   ActivityType,
 } = require("discord.js");
 const dotenv = require("dotenv");
-const dmChatSpan = require("./templates/dmChatsSpam.json");
+const dmChatSpan = require("./templates/dm/commands.json");
 dotenv.config();
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -32,6 +32,7 @@ client.once(Events.ClientReady, () => {
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
+  console.log(interaction.id)
   if (interaction.channel == null) {
     await interaction.reply(dmChatSpan);
   } else {
