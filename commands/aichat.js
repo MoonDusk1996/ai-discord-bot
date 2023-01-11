@@ -1,12 +1,9 @@
 // imports
-const navigateButtons = require("../templates/navigateButtons");
-const { embeds } = require("../templates/pageEmbeds");
-
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({ apiKey: process.env.OPENAI_API_KEY });
 const openai = new OpenAIApi(configuration);
 
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 
 //command config
 module.exports = {
@@ -31,36 +28,40 @@ module.exports = {
       temperature: 0,
     });
 
+    console.log(response.data.choices[0].text.length);
     //final response
+
     if (response.data.choices[0].text.length < maxCaracters) {
+      const embed = new EmbedBuilder()
+        .setAuthor({
+          name: interaction.user.username,
+          iconURL: interaction.user.displayAvatarURL(),
+        })
+        .setDescription(interaction.options.getString("prompt"))
+        .addFields({
+          name: "Resposta:",
+          value: response.data.choices[0].text,
+          inline: false,
+        })
+        .setColor("#6B8E23");
       interaction.editReply({
-        embeds: [embeds(interaction, response, maxCaracters).allbutons[0]],
+        embeds: [embed],
       });
     } else {
-      const filter = (i) => i.customId === "next" || i.customId === "prev";
-      const collector = interaction.channel.createMessageComponentCollector({
-        filter,
-      });
-      collector.on("collect", async (i) => {
-        if (i.customId == "prev") {
-          await i.update({
-            components: [navigateButtons],
-            embeds: [embeds(interaction, response, maxCaracters).allbutons[0]],
-          });
-        }
-        if (i.customId == "next") {
-          await i.update({
-            components: [navigateButtons],
-            embeds: [embeds(interaction, response, maxCaracters).allbutons[1]],
-          });
-        }
-      });
-
-      collector.on("end", (collected) => console.log(`end`));
-
+      const embed = new EmbedBuilder()
+        .setAuthor({
+          name: interaction.user.username,
+          iconURL: interaction.user.displayAvatarURL(),
+        })
+        .setDescription(interaction.options.getString("prompt"))
+        .addFields({
+          name: "Resposta:",
+          value: "Desculpe, a resposta é grande ou muito poderosa não consigo responder.🥺",
+          inline: false,
+        })
+        .setColor("#FF4500");
       interaction.editReply({
-        embeds: [embeds(interaction, response, maxCaracters).allbutons[0]],
-        components: [navigateButtons],
+        embeds: [embed],
       });
     }
   },
