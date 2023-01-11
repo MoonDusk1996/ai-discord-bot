@@ -16,6 +16,7 @@ dotenv.config();
 
 //command config
 module.exports = {
+  
   data: new SlashCommandBuilder()
     .setName("aichat")
     .setDescription("converse com a Mary Jana")
@@ -23,62 +24,101 @@ module.exports = {
       option.setName("prompt").setDescription("prompt").setRequired(true)
     ),
 
+    
   //command action
   async execute(interaction, client) {
+    const maxCaracters = 1020;
+
+    //see first message
     await interaction.deferReply();
 
     const response = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: interaction.options.getString("prompt"),
-      max_tokens: 1000,
+      max_tokens: 1020,
       temperature: 0,
     });
+    //pagination
+    const pagina1 = response.data.choices[0].text.slice(0, maxCaracters);
+    const pagina2 = response.data.choices[0].text.slice(
+      maxCaracters,
+      maxCaracters * 2
+    );
 
-    //trataments
-    if (response.data.choices[0].text.length < 1024) {
-      const embed = new EmbedBuilder()
-        .setAuthor({
-          name: interaction.user.username,
-          iconURL: interaction.user.displayAvatarURL(),
-        })
-        .setDescription(interaction.options.getString("prompt"))
-        .addFields({
-          name: "Resposta:",
-          value: `${response.data.choices[0].text}`,
-          inline: true,
-        })
-        .setColor("#008000");
+    //embeds
+    const embed = new EmbedBuilder()
+      .setAuthor({
+        name: interaction.user.username,
+        iconURL: interaction.user.displayAvatarURL(),
+      })
+      .setDescription(interaction.options.getString("prompt"))
+      .addFields({
+        name: "Resposta:",
+        value:
+          response.data.choices[0].text.length < maxCaracters
+            ? pagina1
+            : pagina1 + "...",
+        inline: true,
+      })
+      .setColor("#008000");
 
+    const embed2 = new EmbedBuilder()
+      .setAuthor({
+        name: interaction.user.username,
+        iconURL: interaction.user.displayAvatarURL(),
+      })
+      .setDescription(interaction.options.getString("prompt"))
+      .addFields({
+        name: "Resposta:",
+        value: pagina2 == "" ? "..." : pagina2,
+        inline: true,
+      })
+      .setColor("#008000");
+
+    // buttons
+    const navigateButtons = new ActionRowBuilder().addComponents([
+      new ButtonBuilder()
+        .setCustomId("prev")
+        .setEmoji("⬅️")
+        .setStyle(ButtonStyle.Primary),
+      new ButtonBuilder()
+        .setCustomId("next")
+        .setEmoji("➡️")
+        .setStyle(ButtonStyle.Primary),
+    ]);
+    console.log(navigateButtons)
+
+    //final response
+    if (response.data.choices[0].text.length < maxCaracters) {
       interaction.editReply({
         embeds: [embed],
       });
     } else {
-      const embed = new EmbedBuilder()
-        .setAuthor({
-          name: interaction.user.username,
-          iconURL: interaction.user.displayAvatarURL(),
-        })
-        .setDescription(interaction.options.getString("prompt"))
-        .addFields({
-          name: "Resposta:",
-          value: `Desculpe, infelizmente essa resposta é muito grande para os padrões do Discord, mas em breve estarei com o meu sistema de paginas 100% funcional`,
-          inline: true,
-        })
-        .setColor("#FF4500");
-      const navigateButtons = new ActionRowBuilder().addComponents([
-        new ButtonBuilder()
-          .setCustomId("prev")
-          .setEmoji("⬅️")
-          .setStyle(ButtonStyle.Primary)
-          .setDisabled(true),
-        new ButtonBuilder()
-          .setCustomId("next")
-          .setEmoji("➡️")
-          .setStyle(ButtonStyle.Primary)
-          .setDisabled(true),
-      ]);
+      const filter = (i) => i.customId === "next" || i.customId === "prev";
+      const collector = interaction.channel.createMessageComponentCollector({
+        filter,
+      });
+      collector.on("collect", async (i) => {
+        if (i.customId == "prev") {
+          await i.update({
+            components: [navigateButtons],
+            embeds: [embed],
+          });
+        }
+        if (i.customId == "next") {
+          await i.update({
+            components: [navigateButtons],
+            embeds: [embed2],
+          });
+        }
+      });
 
-      interaction.editReply({ embeds: [embed], components: [navigateButtons] });
+      collector.on("end", (collected) => console.log(`end`));
+
+      interaction.editReply({
+        embeds: [embed],
+        components: [navigateButtons],
+      });
     }
   },
 };
