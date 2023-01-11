@@ -56,7 +56,7 @@ module.exports = {
         .setDescription(interaction.options.getString("prompt"))
         .addFields({
           name: "Resposta:",
-          value: "Desculpe, a resposta é grande ou muito poderosa não consigo responder.🥺",
+          value: "Desculpe, a resposta é grande ou muito poderosa não consigo responder. 🥺",
           inline: false,
         })
         .setColor("#FF4500");
