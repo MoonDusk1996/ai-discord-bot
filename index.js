@@ -8,7 +8,7 @@ const {
   ActivityType,
 } = require("discord.js");
 const dotenv = require("dotenv");
-const { channel } = require("node:diagnostics_channel");
+const dmChatSpan = require("./templates/dmChatsSpam.json");
 dotenv.config();
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -33,25 +33,7 @@ client.once(Events.ClientReady, () => {
 
 client.on(Events.InteractionCreate, async (interaction) => {
   if (interaction.channel == null) {
-    await interaction.reply({
-      "content": null,
-      "embeds": [
-        {
-          "description": "Desculpe, querido preciso estar em algum servidor para executar os comandos.\nTente me adicionar em algum servidor do discord através do seguinte link:",
-          "color": 10501161,
-          "fields": [
-            {
-              "name": "Mary Jane - Discord bot",
-              "value": "https://discord.com/api/oauth2/authorize?client_id=990769238841118740&permissions=2147483648&scope=bot%20applications.commands"
-            }
-          ],
-          "thumbnail": {
-            "url": "https://github.com/MoonDusk1996/assets/blob/main/mary-jane-discord-bot/gif.gif?raw=true"
-          }
-        }
-      ],
-      "attachments": []
-    });
+    await interaction.reply(dmChatSpan);
   } else {
     if (!interaction.isButton() && !interaction.isChatInputCommand()) return;
 
