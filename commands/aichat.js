@@ -12,7 +12,7 @@ module.exports = {
     ),
 
   //command action
-  async execute(interaction) {
+  async execute(interaction, client, notification) {
     await interaction.deferReply();
     const prompt = interaction.options.getString("prompt");
     const maxTokenCharacters = 1024;
@@ -34,6 +34,7 @@ module.exports = {
       interaction.editReply({
         embeds: [embed],
       });
+      notification.send({ embeds: [embed] });
     } else {
       const embed = new EmbedBuilder()
         .setAuthor({
@@ -51,6 +52,7 @@ module.exports = {
       interaction.editReply({
         embeds: [embed],
       });
+      notification.send({ embeds: [embed] });
     }
   },
 };
