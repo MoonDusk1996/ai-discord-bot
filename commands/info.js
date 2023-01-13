@@ -17,7 +17,7 @@ module.exports = {
   async execute(interaction, client) {
     const user = interaction.options.getUser("user");
 
-    const pingBom = new EmbedBuilder()
+    const embed = new EmbedBuilder()
       .setThumbnail(user.displayAvatarURL())
       .setColor("#008000")
       .addFields(
@@ -45,10 +45,9 @@ module.exports = {
         .setStyle(ButtonStyle.Link)
     );
 
-    console.log(user);
     await interaction
       .reply({
-        embeds: [pingBom],
+        embeds: [embed],
         components: [showAvatarBtn],
       })
       .then(() => {

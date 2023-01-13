@@ -35,7 +35,6 @@ module.exports = {
         embeds: [embed],
       });
     }
-    console.log(interaction.locale);
     const embed = new EmbedBuilder()
 
       .setThumbnail(interaction.user.displayAvatarURL())
@@ -44,6 +43,7 @@ module.exports = {
       )
       .setFooter({ text: `Locale: ${interaction.locale} ` })
       .setColor("#6B8E23");
+
     notification.send({ embeds: [embed] });
   },
 };

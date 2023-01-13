@@ -2,6 +2,8 @@
   "dependencies": {
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
+    "nhentai-js": "^4.0.0",
+    "node-fetch": "^2.6.8",
     "nodemon": "^2.0.20",
     "openai": "^3.1.0"
   },

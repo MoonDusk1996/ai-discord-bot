@@ -1,5 +1,5 @@
 // imports
-const openai = require("../services/openAi");
+const openai = require("../services/fetchOpenai");
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 
 //command config
@@ -52,6 +52,7 @@ module.exports = {
       interaction.editReply({
         embeds: [embed],
       });
+      
       notification.send({ embeds: [embed] });
     }
   },
