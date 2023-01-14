@@ -5,27 +5,33 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("hentai")
     .setDescription("post a image hentai")
+
     .addStringOption((option) =>
       option
         .setName("tag")
-        .setDescription("hentai tag")
-        .setRequired(true)
+        .setDescription("Hentai tag")
+        .setRequired(false)
         .addChoices(
-          { name: "ass", value: "ass" },
-          { name: "milf", value: "milf" },
-          { name: "oral", value: "oral" },
-          { name: "paizuri", value: "paizuri" },
-          { name: "ecchi", value: "ecchi" },
-          { name: "ero", value: "ero" }
+          { name: "Ass", value: "ass" },
+          { name: "Milf", value: "milf" },
+          { name: "Oral", value: "oral" },
+          { name: "Paizuri", value: "paizuri" },
+          { name: "Ecchi", value: "ecchi" },
+          { name: "Ero", value: "ero" }
         )
+    )
+    .addBooleanOption((option) =>
+      option
+        .setName("gif")
+        .setDescription("return a gif")
     ),
 
   async execute(interaction, client, notification) {
-    const tag = interaction.options.getString("tag");
-    const gif = interaction.options.getString("gif") ?? false;
+    const tag = interaction.options.getString("tag") ?? "hentai";
+    const gif = interaction.options.getBoolean("gif") ?? false;
 
     const response = await fetch(
-      `https://api.waifu.im/search/?included_tags=${tag}`
+      `https://api.waifu.im/search/?included_tags=${tag}&gif=${gif}`
     );
     const data = await response.json();
 
