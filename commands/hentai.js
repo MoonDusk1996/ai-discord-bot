@@ -21,9 +21,7 @@ module.exports = {
         )
     )
     .addBooleanOption((option) =>
-      option
-        .setName("gif")
-        .setDescription("return a gif")
+      option.setName("gif").setDescription("return a gif")
     ),
 
   async execute(interaction, client, notification) {
