@@ -43,26 +43,26 @@ client.once(Events.ClientReady, () => {
 client.on(Events.MessageCreate, (message) => {
   if (message.guild == "363504194453241866") {
     if (
-      message.content === "corno" ||
-      message.content === "boi" ||
-      message.content === "gado" ||
-      message.content === "vaca" ||
-      message.content === "chifre" ||
-      message.content === "chifrudo" ||
-      message.content === "chifrou" ||
-      message.content === "traiu" ||
-      message.content === "test"
+      message.content.includes("corno") ||
+      message.content.includes("boi") ||
+      message.content.includes("gado") ||
+      message.content.includes("vaca") ||
+      message.content.includes("chifre") ||
+      message.content.includes("chifrudo") ||
+      message.content.includes("chifrou") ||
+      message.content.includes("traiu") ||
+      message.content.includes("test")
     ) {
       message.react("<:gado:474085129061662721>");
     }
     if (
-      message.content === "lol" ||
-      message.content === "lolzinho" ||
-      message.content === "vava" ||
-      message.content === "gay" ||
-      message.content === "viado" ||
-      message.content === "bixa" ||
-      message.content === "<@&1016783676526301346>"
+      message.content.includes("lol") ||
+      message.content.includes("lolzinho") ||
+      message.content.includes("vava") ||
+      message.content.includes("gay") ||
+      message.content.includes("viado") ||
+      message.content.includes("bixa") ||
+      message.content.includes("<@&1016783676526301346>")
     ) {
       message.react("🏳️‍🌈");
     }
@@ -70,7 +70,6 @@ client.on(Events.MessageCreate, (message) => {
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
-  
   const notification = client.channels.cache.get(
     process.env.CHANNEL_NOTIFICATION_ID
   );
