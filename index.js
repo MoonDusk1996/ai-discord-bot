@@ -11,7 +11,15 @@ const {
 const dotenv = require("dotenv");
 const dmChatSpan = require("./templates/dm/commands.json");
 dotenv.config();
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+  intents: [
+    GatewayIntentBits.DirectMessages,
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildBans,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
+});
 
 client.commands = new Collection();
 const commandsPath = path.join(__dirname, "commands");
@@ -29,10 +37,40 @@ client.once(Events.ClientReady, () => {
   console.log(
     `${client.user.username} está ${client.presence.status} em ${client.guilds.cache.size} servidores no discord!`
   );
-  client.user.setActivity("o Brasil no hard", { type: ActivityType.Playing });
+  client.user.setActivity("o Brasil", { type: ActivityType.Playing });
+});
+
+client.on(Events.MessageCreate, (message) => {
+  if (message.guild == "363504194453241866") {
+    if (
+      message.content === "corno" ||
+      message.content === "boi" ||
+      message.content === "gado" ||
+      message.content === "vaca" ||
+      message.content === "chifre" ||
+      message.content === "chifrudo" ||
+      message.content === "chifrou" ||
+      message.content === "traiu" ||
+      message.content === "test"
+    ) {
+      message.react("<:gado:474085129061662721>");
+    }
+    if (
+      message.content === "lol" ||
+      message.content === "lolzinho" ||
+      message.content === "vava" ||
+      message.content === "gay" ||
+      message.content === "viado" ||
+      message.content === "bixa" ||
+      message.content === "<@&1016783676526301346>"
+    ) {
+      message.react("🏳️‍🌈");
+    }
+  }
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
+  
   const notification = client.channels.cache.get(
     process.env.CHANNEL_NOTIFICATION_ID
   );
