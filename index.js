@@ -7,7 +7,6 @@ const {
   Events,
   GatewayIntentBits,
   ActivityType,
-  EmbedBuilder,
 } = require("discord.js");
 const dotenv = require("dotenv");
 dotenv.config();
@@ -18,11 +17,12 @@ const client = new Client({
     GatewayIntentBits.GuildBans,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMembers,
   ],
 });
 const dmChatSpan = require("./templates/dm/noPremiumUser.json");
-const rollDice = require("./services/rollDice");
-const openai = require("./services/fetchOpenai");
+const updateDonatersRole = require("./modules/updateDonatersRole");
+const PremiumGuildFunctions = require("./modules/PremiumGuildFunctions");
 
 //discord config
 client.commands = new Collection();
@@ -37,20 +37,32 @@ for (const file of commandFiles) {
   client.commands.set(command.data.name, command);
 }
 
-//once on start
-client.once(Events.ClientReady, () => {
-  console.log(
-    `${client.user.username} está ${client.presence.status} em ${client.guilds.cache.size} servidores no discord!`
-  );
+//===========================once on start==============================//
+client.once(Events.ClientReady, async () => {
   client.user.setActivity("o Brasil", { type: ActivityType.Playing });
+  console.log(
+    `${client.user.username} está ${client.presence.status} em ${client.guilds.cache.size} servidores no discord! ⚡`
+  );
 });
 
-//when on
+//=============================ever on=================================//
+client.on(Events.ClientReady, async () => {
+  updateDonatersRole(client);
+});
+
+//=========== when a new member enter in the official guild===========//
+client.on(Events.GuildMemberAdd, (member) => {
+  if (member.guild.id === process.env.OFFICIAL_GUILD_ID) {
+    console.log(` a new member has entred in the ${member.guild.name} ➕`);
+    updateDonatersRole(client);
+  }
+});
+
+//=====================when interaction commands=======================//
 client.on(Events.InteractionCreate, async (interaction) => {
   const notification = client.channels.cache.get(
     process.env.CHANNEL_NOTIFICATION_ID
   );
-
   const command = client.commands.get(interaction.commandName);
   switch (
     interaction.channel //avaliate channel
@@ -63,73 +75,10 @@ client.on(Events.InteractionCreate, async (interaction) => {
       break;
   }
 });
-
-//when on premium server
+//==============when a message is sent in some guild================//
 client.on(Events.MessageCreate, async (message) => {
   if (message.guild == process.env.PREMIUM_GUILD) {
-    const messagedata = message.content.toLowerCase();
-    const percent = 15;
-
-    if (message.content.includes(`<@${process.env.DISCORD_APP_ID}>`)) {
-      if (message.reference) {
-        const replyto = await message.channel.messages.fetch(
-          message.reference.messageId
-        );
-        const messageReference = replyto.content.replace(
-          `<@${process.env.DISCORD_APP_ID}>`,
-          ""
-        );
-
-        const prompt = `${message.content}: "${messageReference}"`.replace(
-          `<@${process.env.DISCORD_APP_ID}>`,
-          ""
-        );
-        const response = await openai(prompt, 1000);
-        console.log(response);
-        message.reply(response);
-      }
-    }
-
-    //react emoji
-    if (rollDice(percent)) {
-      if (
-        messagedata.includes("corno") ||
-        messagedata.includes("cornos") ||
-        messagedata.includes("boi") ||
-        messagedata.includes("gado") ||
-        messagedata.includes("vaca") ||
-        messagedata.includes("chifre") ||
-        messagedata.includes("chifrudo") ||
-        messagedata.includes("chifrou") ||
-        messagedata.includes("traiu")
-      ) {
-        message.react("<:gado:474085129061662721>"); //gado emoji
-      }
-      if (
-        messagedata.includes("lol") ||
-        messagedata.includes("lolzinho") ||
-        messagedata.includes("vava") ||
-        messagedata.includes("<@&1016783676526301346>")
-      ) {
-        message.react("🏳️‍🌈"); //gay flag emoji
-      }
-      if (
-        messagedata.includes("travesti") ||
-        messagedata.includes("ancap") ||
-        messagedata.includes("caneta") ||
-        messagedata.includes("ateu")
-      ) {
-        message.react("<:3x4:416104479176392707>"); //caneta emoji
-      }
-      if (
-        messagedata.includes("seven") ||
-        messagedata.includes("frango") ||
-        messagedata.includes("galinha") ||
-        messagedata.includes("frangos")
-      ) {
-        message.react("<:Seven:364212708352196618>>"); // seven emoji
-      }
-    }
+    PremiumGuildFunctions(message);
   }
 });
 
