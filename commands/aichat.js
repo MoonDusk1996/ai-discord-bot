@@ -12,10 +12,13 @@ module.exports = {
     ),
 
   //command action
-  async execute(interaction, client, notification) {
+  async execute(interaction, client) {
+    const cannelNotification = client.channels.cache.get(
+      process.env.CHANNEL_NOTIFICATION_ID
+    );
     await interaction.deferReply();
     const prompt = interaction.options.getString("prompt");
-    const maxTokenCharacters = 1024;
+    const maxTokenCharacters = 1000;
     const response = await openai(prompt, maxTokenCharacters);
 
     if (response.length < maxTokenCharacters) {
@@ -34,7 +37,7 @@ module.exports = {
       interaction.editReply({
         embeds: [embed],
       });
-      notification.send({ embeds: [embed] });
+      cannelNotification.send({ embeds: [embed] });
     } else {
       const embed = new EmbedBuilder()
         .setAuthor({
@@ -45,15 +48,15 @@ module.exports = {
         .addFields({
           name: "Resposta:",
           value:
-            "Desculpe, a resposta é grande ou muito poderosa não consigo responder. 🥺",
+            "Desculpe, a resposta é grande ou muito poderosa, infelizmente ainda não consigo responder isso. 😞",
           inline: false,
         })
         .setColor("#FF4500");
       interaction.editReply({
         embeds: [embed],
       });
-      
-      notification.send({ embeds: [embed] });
+
+      cannelNotification.send({ embeds: [embed] });
     }
   },
 };
