@@ -8,27 +8,27 @@ const {
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("info")
-    .setDescription("Veja informações de um usuário")
+    .setName(`info`)
+    .setDescription("see details for a specific user")
     .addUserOption((option) =>
-      option.setName("user").setDescription("Usuário").setRequired(true)
+      option.setName("user").setDescription("user").setRequired(true)
     ),
 
-  async execute(interaction, client) {
+  async execute(interaction) {
     const user = interaction.options.getUser("user");
 
     const embed = new EmbedBuilder()
       .setThumbnail(user.displayAvatarURL())
-      .setColor("#008000")
+      .setColor(user.accentColor ? user.accentColor : "#008000")
       .addFields(
         {
-          name: "Usuário:",
+          name: "Global nick:",
           value: `\`${user.username}#${user.discriminator}\``,
           inline: true,
         },
         {
-          name: "É um bot?",
-          value: `\`${user.bot === true ? "Sim" : "Não"}\``,
+          name: "bot?",
+          value: `\`${user.bot? "Yes" : "No"}\``,
           inline: true,
         },
         {
@@ -41,7 +41,7 @@ module.exports = {
     const showAvatarBtn = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setURL(user.displayAvatarURL({ dynamic: true, size: 4096 }))
-        .setLabel("Abrir avatar no navegador")
+        .setLabel("Avatar")
         .setStyle(ButtonStyle.Link)
     );
 

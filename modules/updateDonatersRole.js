@@ -18,7 +18,7 @@ function updateDonatersRole(client) {
     const role = guild.roles.cache.get(process.env.SPECIAL_USER_ROLE_ID);
     setDonatersRole();
     async function setDonatersRole() {
-      console.log("set donaters role ⏳...");
+      console.log("set donaters role... ⏳");
       await guild.members
         .fetch()
         .then((users) =>
