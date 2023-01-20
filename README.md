@@ -28,6 +28,16 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 ![Discord](https://img.shields.io/discord/866109574905069608)
 
+## Índice 
+
+* [About](#about)
+* [Índice](#índice)
+* [Installation](#installation)
+* [Technologies](#technologies)
+* [Contributing](#contributing)
+* [Faq](#faq)
+* [License](#license)
+* [referências](#referências)
 
 </div>
 
@@ -37,19 +47,9 @@ Mary Jane is a bot for discord with the simple objective of simulating a chat co
 With her you can: chat, ask questions, express your feelings and much more, your creativity is the limit.
 
 ## 💾Installation
-
-You can add Mary Jane to your discord server by accessing the link [Mary Jane bot - invite guild](https://discord.com/api/oauth2/authorize?client_id=990769238841118740&permissions=0&redirect_uri=https%3A%2F%2Fmary-jane-website.vercel.app%2Fapi%2Fauth%2Fcallback%2Fdiscord&response_type=code&scope=applications.commands%20identify%20bot) or jon on the [Mary Jane bot - official server](https://discord.com/invite/AGfxJKmbKf) and interacting with her through the commands.
-
-## 💻Commands
-
-`/chat`
-
-`/info`
-
-`/ping`
-
-## 🛠Technologies used
-
+You can add Mary Jane to your discord server by accessing the link [Mary Jane bot - invite guild](https://my-link-tree-moondusk1996.vercel.app/) or jon on the [Mary Jane bot - official server](https://discord.com/invite/AGfxJKmbKf) and interacting with her through the commands.
+    
+## 🛠️Technologies
 **Programming languages:** Javascript, Typescript.
 
 **Framework and libraries:** Next.js, Discord.js, OpenAI, Stripe, Next-auth, Material.ui.
