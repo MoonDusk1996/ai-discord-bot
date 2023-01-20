@@ -5,7 +5,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 //command config
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("aichat")
+    .setName("chat")
     .setDescription("converse com a Mary Jane")
     .addStringOption((option) =>
       option.setName("prompt").setDescription("prompt").setRequired(true)

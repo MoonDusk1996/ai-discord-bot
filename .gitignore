@@ -7,4 +7,6 @@
 
 #config deploy
 discloud.config
-*firebaseService.json
+firebaseService.json
+
+/modules*PremiumGuildFunctions.js 
