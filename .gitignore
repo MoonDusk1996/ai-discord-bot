@@ -9,4 +9,4 @@
 discloud.config
 *firebaseService.json
 
-/modules/PremiumGuildFunctions
+/modules/PremiumGuildFunctions.js
