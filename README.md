@@ -64,7 +64,7 @@ This project is under license MIT. See [LICENSE.md](https://choosealicense.com/l
 
 #### How do I use the commands?
 
-You can use the commands using the `/` prefix followed by the command in any chat that Mary Jane is in.
+You can use the commands using the prefix `/`  followed by the command in any chat that Mary Jane is in.
 
 
 #### How does Mary Jane generate the answers?
