@@ -1,6 +1,5 @@
 <div align="center">
 
-![Mary Jane bot](https://github.com/MoonDusk1996/assets/blob/main/mary-jane-discord-bot/cover.gif)
 ![Mary Jane bot](https://github.com/MoonDusk1996/assets/blob/main/mary-jane-discord-bot/favicon.png)
 
 # Mary Jane - Discord bot
