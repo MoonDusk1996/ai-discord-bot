@@ -4,24 +4,43 @@
 
 
 ![Mary Jane bot](https://github.com/MoonDusk1996/assets/blob/main/mary-jane-discord-bot/cover.gif) 
+    
+ 
 # Mary Jane - Discord bot
+    
+    
+| [About](#about)
+    |
+[Installation](#installation)
+    |
+[Commands](#commands)
+    |
+[Technologies used](#technologies-used)
+    |
+[Contributing](#contributing)
+    |
+[License](#license)
+    |
+[F.A.Q](#faq)
+    |
+[References](#references)
+    |    
+
+    
+    
 </div>
 
 <div align="center">
     
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+![Discord](https://img.shields.io/discord/866109574905069608)
+    
+
+    
 </div>
 
-## Index 
 
-* [About](#about)
-* [Installation](#installation)
-* [Commands](#commands)
-* [Technologies used](#technologies-used)
-* [Contributing](#contributing)
-* [License](#license)
-* [F.A.Q](#faq)
-* [References](#references)
+
 
 ## 📝About
 Mary Jane is a bot for discord with the simple objective of simulating a chat conversation with a real person, in addition to bringing some features that make it extremely powerful and useful in some everyday situations.
@@ -60,7 +79,7 @@ This project is under license MIT. See [LICENSE.md](https://choosealicense.com/l
 
 
 
-## FAQ
+## 🙋FAQ
 
 #### How do I use the commands?
 
@@ -83,7 +102,12 @@ Some are:
 - Donation amount.
 
 
-## References
- - [Next.js]( https://nextjs.org/)
- - [Material UI](https://mui.com/)
+## 🔎References
+ - [Javascript](https://developer.mozilla.org/en-US/docs/Web/javascript/)
+ - [Typescript](https://www.typescriptlang.org/)
+ - [Next.js](https://nextjs.org/)
  - [Discord.js](https://discord.js.org/)
+ - [Material UI](https://mui.com/)
+ - [OpenAI](https://openai.com/)
+ - [Stripe](https://stripe.com/br)
+ - [Firebase](https://firebase.google.com/)
