@@ -40,7 +40,14 @@
 </div>
 
 
-
+* [About](#about)
+* [Installation](#installation)
+* [Commands](#commands)
+* [Technologies used](#technologies-used)
+* [Contributing](#contributing)
+* [License](#license)
+* [F.A.Q](#faq)
+* [References](#references)
 
 ## 📝About
 Mary Jane is a bot for discord with the simple objective of simulating a chat conversation with a real person, in addition to bringing some features that make it extremely powerful and useful in some everyday situations.
@@ -53,11 +60,11 @@ You can add Mary Jane to your discord server by accessing the link [Mary Jane bo
 
 ## 💻Commands
 
-`/chat`
+`/aichat`: Javascript, Typescript.
 
-`/info`
+`/info`: Next.js, Discord.js, OpenAI, Stripe, Next-auth, Material.ui.
 
-`/ping`
+`/ping`: Firebase, Firestore.
     
 ## 🛠Technologies used
 
@@ -83,7 +90,7 @@ This project is under license MIT. See [LICENSE.md](https://choosealicense.com/l
 
 #### How do I use the commands?
 
-You can use the commands using the prefix `/`  followed by the command in any chat that Mary Jane is in.
+You can use the commands using the `/` prefix followed by the command in any chat that Mary Jane is in.
 
 
 #### How does Mary Jane generate the answers?
