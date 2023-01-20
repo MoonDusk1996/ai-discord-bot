@@ -25,7 +25,7 @@
 
 <div align="center">
     
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/MoonDusk1996/mary-jane-bot/blob/main/LICENSE)
 ![Discord](https://img.shields.io/discord/866109574905069608)
 
 </div>
@@ -61,7 +61,7 @@ Visit [The perks of being a donor](https://vercel.com/moondusk1996/mary-jane-web
 
 ## 📄License
 
-This project is under license MIT. See [LICENSE.md](https://choosealicense.com/licenses/mit/) file for details.
+This project is under license MIT. See [LICENSE.md](https://github.com/MoonDusk1996/mary-jane-bot/blob/main/LICENSE) file for details.
 
 ## 🙋FAQ
 
