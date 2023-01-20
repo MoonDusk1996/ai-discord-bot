@@ -16,6 +16,7 @@
 
 * [About](#about)
 * [Installation](#installation)
+* [Commands](#commands)
 * [Technologies used](#technologies-used)
 * [Contributing](#contributing)
 * [License](#license)
@@ -28,6 +29,16 @@ With her you can: chat, ask questions, express your feelings and much more, your
 
 ## 💾Installation
 You can add Mary Jane to your discord server by accessing the link [Mary Jane bot - invite guild](https://discord.com/api/oauth2/authorize?client_id=990769238841118740&permissions=0&redirect_uri=https%3A%2F%2Fmary-jane-website.vercel.app%2Fapi%2Fauth%2Fcallback%2Fdiscord&response_type=code&scope=applications.commands%20identify%20bot) or jon on the [Mary Jane bot - official server](https://discord.com/invite/AGfxJKmbKf) and interacting with her through the commands.
+
+
+
+## 💻Commands
+
+`/aichat`: Javascript, Typescript.
+
+`/info`: Next.js, Discord.js, OpenAI, Stripe, Next-auth, Material.ui.
+
+`/ping`: Firebase, Firestore.
     
 ## 🛠Technologies used
 
@@ -40,7 +51,8 @@ You can add Mary Jane to your discord server by accessing the link [Mary Jane bo
 
 ## 💖Contributing
 
-Contributions are always welcome and you get some perks, see [The perks of being a donor](https://vercel.com/moondusk1996/mary-jane-website). Every donation will help keep the project active in addition to always keeping the project constantly evolving.
+Contributions are always welcome and help a lot.
+Visit [The perks of being a donor](https://vercel.com/moondusk1996/mary-jane-website), log in with your discord account and make a donation. With this you help us keep the project active and constantly evolving, in addition to guaranteeing some bonuses such as a special role on the official server and being able to execute commands directly in Mary Jane's DM.
 
 
 ## 📄License
@@ -50,23 +62,25 @@ This project is under license MIT. See [LICENSE.md](https://choosealicense.com/l
 
 ## FAQ
 
-#### Why use the discordJS library?
+#### How do I use the commands?
 
-With Discord.js we managed to get some access information, in this way we send a webhook to a discord channel with some information.
+You can use the commands using the `/` prefix followed by the command in any chat that Mary Jane is in.
 
-#### What is this information?
 
-Information obtained by the header on the deployment platform used, in this case, Versel.
+#### How does Mary Jane generate the answers?
+
+Mary Jane makes use of artificial intelligence obtained by the OpenAI API and a refinement process to be always improved.
+
+
+#### What information is stored in the database?
+
+Only non-sensitive and public information from donors to apply the benefits.
 
 Some are:
-- public ip address
-- access time
-- theme
-- visited links
-
-#### What are you doing with this information?
-
-Nothing more, they are only for the purpose of study and improvement of the project.
+- Discord ID.
+- Discord name.
+- Discord avatar.
+- Donation amount.
 
 
 ## References
