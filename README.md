@@ -3,7 +3,7 @@
 <div align="center">
 
 
-![Mary Jane bot](https://github.com/MoonDusk1996/assets/blob/main/mary-jane-discord-bot/favicon.png) 
+![Mary Jane bot](https://github.com/MoonDusk1996/assets/blob/main/mary-jane-discord-bot/cover.gif) 
     
  
 # Mary Jane - Discord bot
@@ -40,14 +40,7 @@
 </div>
 
 
-* [About](#about)
-* [Installation](#installation)
-* [Commands](#commands)
-* [Technologies used](#technologies-used)
-* [Contributing](#contributing)
-* [License](#license)
-* [F.A.Q](#faq)
-* [References](#references)
+
 
 ## 📝About
 Mary Jane is a bot for discord with the simple objective of simulating a chat conversation with a real person, in addition to bringing some features that make it extremely powerful and useful in some everyday situations.
