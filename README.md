@@ -53,11 +53,11 @@ You can add Mary Jane to your discord server by accessing the link [Mary Jane bo
 
 ## 💻Commands
 
-`/aichat`: Javascript, Typescript.
+`/chat`
 
-`/info`: Next.js, Discord.js, OpenAI, Stripe, Next-auth, Material.ui.
+`/info`
 
-`/ping`: Firebase, Firestore.
+`/ping`
     
 ## 🛠Technologies used
 
