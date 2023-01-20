@@ -1,10 +1,16 @@
 const rollDice = require("../modules/rollDice");
 const openai = require("../services/fetchOpenai");
 
-async function PremiumGuildFunctions(message) {
+async function PremiumGuildFunctions(message, client) {
   const messagedata = message.content.toLowerCase();
-  const percent = 15;
+  const emojiReactEspecificKeywordChance = 15;
+  const criticalRandonEmojiChance = 1;
+  const customEmojiList = client.emojis.cache.map((e) => {
+    return `${e}`;
+  });
 
+
+  //função de perguntar o que o bot acha
   if (message.content.includes(`<@${process.env.DISCORD_APP_ID}>`)) {
     if (message.reference) {
       const replyto = await message.channel.messages.fetch(
@@ -25,8 +31,15 @@ async function PremiumGuildFunctions(message) {
     }
   }
 
-  //react emoji
-  if (rollDice(percent)) {
+  //critial random custom emoji
+  if (rollDice(criticalRandonEmojiChance)) {
+    message.react(
+      customEmojiList[Math.floor(Math.random() * customEmojiList.length)]
+    );
+  }
+
+  //react emoji in especific keywords
+  if (rollDice(emojiReactEspecificKeywordChance)) {
     if (
       messagedata.includes("corno") ||
       messagedata.includes("cornos") ||

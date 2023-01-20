@@ -8,7 +8,7 @@ const dmChatSpan = require("./templates/dm/noPremiumUser.json");
 const updateDonatersRole = require("./modules/updateDonatersRole");
 const PremiumGuildFunctions = require("./modules/PremiumGuildFunctions");
 
-const premiumGuildId = "363504194453241866";
+const premiumGuildId = process.env.PREMIUM_GUILD;
 const officialGuildId = "866109574905069608";
 
 //===========================once on start==============================//
@@ -50,7 +50,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 //===============when a message is sent in some guild================//
 client.on(Events.MessageCreate, async (message) => {
   if (message.guild == premiumGuildId) {
-    PremiumGuildFunctions(message);
+    PremiumGuildFunctions(message, client);
   }
 });
 
