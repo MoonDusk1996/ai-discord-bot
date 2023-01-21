@@ -5,13 +5,13 @@ admin.initializeApp({
 const db = admin.firestore();
 const query = db.collection("transactions");
 
-var donatersDiscordId;
 
 function updateDonatersRole(client) {
+  var donatersDiscordId;
   console.log("database fetch update... ⏳");
   const observer = query.onSnapshot((querySnapshot) => {
     donatersDiscordId = querySnapshot.docs.map(
-      (data) => data.data().metadata.discord_id
+      (data) => data.data().metadata.discord_user.discord_id
     );
     console.log("fetchig database sucessfull ✅");
     const guild = client.guilds.cache.get(process.env.OFFICIAL_GUILD_ID);

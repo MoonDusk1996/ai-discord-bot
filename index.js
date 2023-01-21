@@ -33,22 +33,22 @@ client.on(Events.GuildMemberAdd, (member) => {
 });
 
 //======================when interaction commands=====================//
-client.on(Events.InteractionCreate, async (interaction) => {
+client.on(Events.InteractionCreate, (interaction) => {
   const command = client.commands.get(interaction.commandName);
   switch (
     interaction.channel //avaliate channel
   ) {
     case null: //dm channel
-      await interaction.reply(dmChatSpan);
+      interaction.reply(dmChatSpan);
       break;
     default: //all guid channel
-      await command.execute(interaction, client);
+      command.execute(interaction, client);
       break;
   }
 });
 
 //===============when a message is sent in some guild================//
-client.on(Events.MessageCreate, async (message) => {
+client.on(Events.MessageCreate, (message) => {
   if (message.guild == premiumGuildId) {
     PremiumGuildFunctions(message, client);
   }

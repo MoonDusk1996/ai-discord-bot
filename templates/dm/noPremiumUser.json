@@ -2,17 +2,19 @@
   "content": null,
   "embeds": [
     {
-      "description": "Desculpe querido(a). Comandos diretos só estão disponiveis para futuros assinantes e contribuintes. Não fique chateado, ainda posso executar os comandos se você me adicionar em algum servidor do discord através do seguinte link:",
+      "description": "Desculpe, comandos diretos só estão disponiveis para doadores. Não fique chateado, ainda posso executar os comandos no nosso servidor oficial ou se você me adicionar em algum servidor do discord",
       "color": 10501161,
       "fields": [
         {
-          "name": "Mary Jane - Discord bot",
+          "name": "Mary Jane - Invite guild",
           "value": "https://discord.com/api/oauth2/authorize?client_id=990769238841118740&permissions=2147483648&scope=bot%20applications.commands"
+        },
+        {
+          "name": "Mary Jane - Official server",
+          "value": "https://discord.gg/AGfxJKmbKf"
         }
-      ],
-      "thumbnail": {
-        "url": "https://github.com/MoonDusk1996/assets/blob/main/mary-jane-discord-bot/gif.gif?raw=true"
-      }
+      ]
+      
     }
   ],
   "attachments": []
