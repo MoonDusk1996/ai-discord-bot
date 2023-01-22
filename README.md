@@ -25,7 +25,6 @@
 
 <div align="center">
     
-![GitHub](https://img.shields.io/github/license/MoonDusk1996/mary-jane-bot)
 ![Discord](https://img.shields.io/discord/866109574905069608)
 
 </div>
