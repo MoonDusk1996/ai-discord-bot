@@ -4,10 +4,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("ping")
     .setDescription("Veja sua conexão em tempo real"),
-  async execute(interaction, client) {
-    const cannelNotification = client.channels.cache.get(
-      process.env.CHANNEL_NOTIFICATION_ID
-    );
+  async execute(interaction, logsChanel, client) {
     const user = interaction.user;
     const guild = interaction.guild;
     const ping = client.ws.ping;
@@ -58,6 +55,6 @@ module.exports = {
       .setFooter({ text: `Locale: ${interaction.locale} ` })
       .setColor("#6B8E23");
 
-    cannelNotification.send({ embeds: [embed] });
+    logsChanel.send({ embeds: [embed] });
   },
 };

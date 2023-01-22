@@ -9,7 +9,7 @@ const response = (prompt, maxTokenCharacters) => {
         model: "text-davinci-003",
         prompt: prompt,
         max_tokens: maxTokenCharacters,
-        temperature: 0,
+        temperature: 1,
       })
       .then((data) => {
         return data.data.choices[0].text;

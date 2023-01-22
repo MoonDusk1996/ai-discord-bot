@@ -2,16 +2,20 @@
   "content": null,
   "embeds": [
     {
-      "description": "Desculpe, comandos diretos só estão disponiveis para doadores. Não fique chateado, ainda posso executar os comandos no nosso servidor oficial ou se você me adicionar em algum servidor do discord",
+      "description": "Desculpe, comandos diretos só estão disponiveis para doadores. Não fique chateado, você ainda pode executar os comandos no nosso servidor oficial ou se você me adicionar em algum servidor do discord",
       "color": 10501161,
       "fields": [
         {
-          "name": "Mary Jane - Invite guild",
+          "name": "Mary Jane - Convite",
           "value": "https://discord.com/api/oauth2/authorize?client_id=990769238841118740&permissions=2147483648&scope=bot%20applications.commands"
         },
         {
-          "name": "Mary Jane - Official server",
+          "name": "Mary Jane - Servidor oficial",
           "value": "https://discord.gg/AGfxJKmbKf"
+        },
+        {
+          "name": "Seja um doador e ajude o projeto ❤️",
+          "value": "https://mary-jane-website.vercel.app/"
         }
       ]
       
