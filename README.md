@@ -61,7 +61,7 @@ Visit [The perks of being a donor](https://mary-jane-website.vercel.app/), log i
 
 ## 📄License
 
-This project is under license MIT. See [LICENSE.md](https://github.com/MoonDusk1996/mary-jane-bot/blob/main/LICENSE) file for details.
+This project is under license GPL-3.0 license. See [LICENSE.md](https://github.com/MoonDusk1996/mary-jane-bot/blob/main/LICENSE.md) file for details.
 
 ## 🙋FAQ
 
