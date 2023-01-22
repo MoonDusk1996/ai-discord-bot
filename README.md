@@ -25,7 +25,7 @@
 
 <div align="center">
     
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/MoonDusk1996/mary-jane-bot/blob/main/LICENSE)
+![GitHub](https://img.shields.io/github/license/MoonDusk1996/mary-jane-bot)
 ![Discord](https://img.shields.io/discord/866109574905069608)
 
 </div>
