@@ -57,7 +57,7 @@ You can add Mary Jane to your discord server by accessing the link [Mary Jane bo
 ## 💖Contributing
 
 Contributions are always welcome and help a lot.
-Visit [The perks of being a donor](https://vercel.com/moondusk1996/mary-jane-website), log in with your discord account and make a donation. This helps us keep the project active and constantly evolving, in addition to guaranteeing some bonuses such as a special role for donater users on the official server and the ability to execute commands directly in Mary Jane's DM.
+Visit [The perks of being a donor](https://mary-jane-website.vercel.app/), log in with your discord account and make a donation. This helps us keep the project active and constantly evolving, in addition to guaranteeing some bonuses such as a special role for donater users on the official server and the ability to execute commands directly in Mary Jane's DM.
 
 ## 📄License
 
