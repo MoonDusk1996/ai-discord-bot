@@ -4,14 +4,14 @@ dotenv.config();
 
 const { Events, ActivityType } = require("discord.js");
 const { client } = require("./configs/discordConfigs");
-const dmChatSpan = require("./templates/dm/noPremiumUser.json");
+const dmToNotDonater = require("./services/dmToNotDonater");
+const updateDonaters = require("./services/teste");
 const fetchDb = require("./services/fetchDb");
 const PremiumGuildFunctions = require("./utils/PremiumGuildFunctions");
 
 const status = "o Brasil no hard";
 
 let specialUsersRoles;
-let logsChanel;
 let premiumGuild;
 let officialGuild;
 let donorUserIds;
@@ -20,19 +20,9 @@ let donorUserIds;
 client.once(Events.ClientReady, async () => {
   officialGuild = client.guilds.cache.get("866109574905069608");
   premiumGuild = client.guilds.cache.get("363504194453241866");
-  logsChanel = client.channels.cache.get("1063274423391621130");
   specialUsersRoles = officialGuild.roles.cache.get("1064834781315088444");
   donorUserIds = await fetchDb().then((data) => data.donorUserIds);
-
-  officialGuild.members.fetch().then((users) =>
-    users.map((item) => {
-      if (donorUserIds.includes(item.id)) {
-        item.roles.add(specialUsersRoles);
-        console.log("donaters role has added ✅");
-      }
-    })
-  );
-
+  updateDonaters(officialGuild, donorUserIds, specialUsersRoles);
   client.user.setActivity(status, { type: ActivityType.Playing });
   console.log(
     `${client.presence.status} em ${client.guilds.cache.size} servidores! ⚡`
@@ -42,15 +32,7 @@ client.once(Events.ClientReady, async () => {
 //=========== when a new member enter in the official guild============//
 client.on(Events.GuildMemberAdd, async (member) => {
   if (member.guild == officialGuild) {
-    donorUserIds = await fetchDb().then((data) => data.donorUserIds);
-    officialGuild.members.fetch().then((users) =>
-      users.map((item) => {
-        if (donorUserIds.includes(item.id)) {
-          item.roles.add(specialUsersRoles);
-          console.log("donaters role has added ✅");
-        }
-      })
-    );
+    updateDonaters(officialGuild, donorUserIds, specialUsersRoles);
   }
 });
 
@@ -62,13 +44,13 @@ client.on(Events.InteractionCreate, (interaction) => {
   ) {
     case null: //dm channel
       if (donorUserIds.includes(interaction.user.id)) {
-        command.execute(interaction, logsChanel, client);
+        command.execute(interaction, client);
       } else {
-        interaction.reply(dmChatSpan);
+        interaction.reply({ embeds: [dmToNotDonater.embed] });
       }
       break;
     default: //all guid channel
-      command.execute(interaction, logsChanel, client);
+      command.execute(interaction, client);
       break;
   }
 });

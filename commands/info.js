@@ -14,9 +14,8 @@ module.exports = {
       option.setName("user").setDescription("user").setRequired(true)
     ),
 
-  async execute(interaction) {
+  async execute(interaction, client) {
     const user = interaction.options.getUser("user");
-
     const embed = new EmbedBuilder()
       .setThumbnail(user.displayAvatarURL())
       .setColor(user.accentColor ? user.accentColor : "#008000")
@@ -28,7 +27,7 @@ module.exports = {
         },
         {
           name: "bot?",
-          value: `\`${user.bot? "Yes" : "No"}\``,
+          value: `\`${user.bot ? "Yes" : "No"}\``,
           inline: true,
         },
         {
@@ -45,13 +44,9 @@ module.exports = {
         .setStyle(ButtonStyle.Link)
     );
 
-    await interaction
-      .reply({
-        embeds: [embed],
-        components: [showAvatarBtn],
-      })
-      .then(() => {
-        setTimeout(() => {}, 4000);
-      });
+    await interaction.reply({
+      embeds: [embed],
+      components: [showAvatarBtn],
+    });
   },
 };

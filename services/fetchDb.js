@@ -6,7 +6,7 @@ const db = admin.firestore();
 const query = db.collection("transactions");
 
 module.exports = function fetchDb() {
-  return new Promise((resolve) => {
+  return new Promise((resolve,reject) => {
     let donorUserIds = [];
     console.log("database fetch update... ⏳");
     query.get().then((snapshot) => {
@@ -21,6 +21,7 @@ module.exports = function fetchDb() {
       donorUserIds = [...new Set(donorUsertransactionIds)];
       console.log("fetchig database sucessfull ✅");
       resolve({ donorUserIds });
+      reject(console.log("database fetch error... ⚠️"))
     });
   });
 };

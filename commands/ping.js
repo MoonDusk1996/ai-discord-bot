@@ -1,10 +1,11 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+const { sucessLog, errorLog } = require("../services/sendLogs");
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ping")
     .setDescription("Veja sua conexão em tempo real"),
-  async execute(interaction, logsChanel, client) {
+  async execute(interaction, client) {
     const user = interaction.user;
     const guild = interaction.guild;
     const ping = client.ws.ping;
@@ -55,6 +56,6 @@ module.exports = {
       .setFooter({ text: `Locale: ${interaction.locale} ` })
       .setColor("#6B8E23");
 
-    logsChanel.send({ embeds: [embed] });
+    sucessLog(client, user, interaction.commandName, null, response);
   },
 };
