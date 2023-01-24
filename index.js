@@ -5,7 +5,7 @@ dotenv.config();
 const { Events, ActivityType } = require("discord.js");
 const { client } = require("./configs/discordConfigs");
 const dmToNotDonater = require("./services/dmToNotDonater");
-const updateDonaters = require("./services/teste");
+const updateDonaters = require("./services/updateDonatersRole");
 const fetchDb = require("./services/fetchDb");
 const PremiumGuildFunctions = require("./utils/PremiumGuildFunctions");
 
