@@ -1,12 +1,7 @@
 const { EmbedBuilder } = require("discord.js")
 
 module.exports = async function sendLogs(client, interaction, embed) {
-	console.log(
-		"Interaction Guild: " + JSON.stringify(interaction.guild, null, 2)
-	)
-	console.log("Interaction User: " + JSON.stringify(interaction.user, null, 2))
-
-	const logChanel = client.channels.cache.get("1063274423391621130")
+	// create template object
 	const user = {
 		id: interaction.user.id,
 		name: interaction.user.username,
@@ -20,8 +15,7 @@ module.exports = async function sendLogs(client, interaction, embed) {
 				icon: interaction.guild.iconURL(),
 		  }
 		: null
-
-	const sucessEmbed = new EmbedBuilder()
+	const logsEmbed = new EmbedBuilder()
 		.setTitle(`Comando ${interaction.commandName} executado!`)
 		.addFields(
 			{
@@ -37,5 +31,28 @@ module.exports = async function sendLogs(client, interaction, embed) {
 		)
 		.setColor("#6B8E23")
 
-	logChanel.send({ embeds: [sucessEmbed, embed] })
+	//switch channel to send logs
+	let logChanel
+	switch (
+		interaction.commandName //avaliate command name
+	) {
+		case "chat": //set logs channel
+			logChanel = client.channels.cache.get("1063274423391621130")
+			break
+		case "info": //set info channel
+			logChanel = client.channels.cache.get("1068895904733614130")
+			break
+		case "ping": //set ping channel
+			logChanel = client.channels.cache.get("1068895398376255509")
+			break
+	}
+
+	//send logs to channel
+	logChanel.send({ embeds: [logsEmbed, embed] })
+
+	// console logs
+	console.log(
+		"Interaction Guild: " + JSON.stringify(interaction.guild, null, 2)
+	)
+	console.log("Interaction User: " + JSON.stringify(interaction.user, null, 2))
 }

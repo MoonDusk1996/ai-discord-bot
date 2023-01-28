@@ -1,7 +1,7 @@
 // imports
-const fetchOpenai = require("../services/fetchOpenai")
+const fetchOpenai = require("../controller/fetchOpenai")
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js")
-const sendLogs = require("../services/sendLogs")
+const sendLogs = require("../utils/sendLogs")
 
 //command config
 module.exports = {

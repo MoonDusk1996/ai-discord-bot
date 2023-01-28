@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js")
-const sendLogs = require("../services/sendLogs")
+const sendLogs = require("../utils/sendLogs")
 
 module.exports = {
 	data: new SlashCommandBuilder()
