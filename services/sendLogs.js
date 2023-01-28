@@ -1,57 +1,41 @@
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder } = require("discord.js")
 
-function sucessLog(client, user, commandName, prompt, response) {
-  const logChanel = client.channels.cache.get("1063274423391621130");
-  const embed = new EmbedBuilder()
-    .setDescription(`Sucesso ao tentar executar o comando ${commandName}`)
-    .addFields(
-      {
-        name: "Usuário:",
-        value: user.username,
-        inline: false,
-      },
-      {
-        name: "Prompt:",
-        value: prompt ? prompt : commandName,
-        inline: false,
-      },
-      {
-        name: "Resposta:",
-        value: response,
-        inline: false,
-      }
-    )
-    .setThumbnail(user.displayAvatarURL())
-    .setColor("#6B8E23");
-  logChanel.send({ embeds: [embed] });
-}
+module.exports = async function sendLogs(client, interaction, embed) {
+	console.log(
+		"Interaction Guild: " + JSON.stringify(interaction.guild, null, 2)
+	)
+	console.log("Interaction User: " + JSON.stringify(interaction.user, null, 2))
 
-function errorLog(client, user, commandName, prompt, response) {
-  const logChanel = client.channels.cache.get("1063274423391621130");
-  const embed = new EmbedBuilder()
-    .setDescription(
-      `Ocorreu um erro ao tentar executar o comando ${commandName}, visite os logs para mais informações.`
-    )
-    .addFields(
-      {
-        name: "Usuário:",
-        value: user.username,
-        inline: false,
-      },
-      {
-        name: "prompt:",
-        value: prompt,
-        inline: false,
-      },
-      {
-        name: "Resposta:",
-        value:
-          "Desculpe, a resposta é grande demais ou muito poderosa, infelizmente ainda não  vou consiguir responder isso no momento.",
-        inline: false,
-      }
-    )
-    .setThumbnail(user.displayAvatarURL())
-    .setColor("#FF4500");
-  logChanel.send({ embeds: [embed] });
+	const logChanel = client.channels.cache.get("1063274423391621130")
+	const user = {
+		id: interaction.user.id,
+		name: interaction.user.username,
+		bot: interaction.user.bot,
+		avatar: interaction.user.avatarURL(),
+	}
+	const guild = interaction.guild
+		? {
+				id: interaction.guild.id,
+				name: interaction.guild.name,
+				icon: interaction.guild.iconURL(),
+		  }
+		: null
+
+	const sucessEmbed = new EmbedBuilder()
+		.setTitle(`Comando ${interaction.commandName} executado!`)
+		.addFields(
+			{
+				name: "Usuário:",
+				value: JSON.stringify(user, null, 2),
+				inline: false,
+			},
+			{
+				name: guild ? "Guild: " : "Comando executado via DM",
+				value: guild ? JSON.stringify(guild, null, 2) : " ",
+				inline: false,
+			}
+		)
+		.setColor("#6B8E23")
+
+	logChanel.send({ embeds: [sucessEmbed, embed] })
 }
-module.exports = { errorLog, sucessLog };
