@@ -1,6 +1,6 @@
 <div align="center">
 
-![Ai Bot](https://github.com/MoonDusk1996/ai-bot)
+<img src="https://github.com/MoonDusk1996/ai-discord-bot/blob/main/public/icon.png" alt="Ai Bot" width="100"/>
 
 # Ai Bot - Discord bot
 
