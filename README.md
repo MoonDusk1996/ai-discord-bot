@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="https://github.com/MoonDusk1996/ai-discord-bot/blob/main/public/icon.png" alt="Ai Bot" width="100"/>
+<img src="https://github.com/MoonDusk1996/ai-discord-bot/blob/main/public/icon.png" alt="AI Bot" width="100"/>
 
-# Ai Bot - Discord bot
+# AI Bot - Discord bot
 
 | [About](#about)
 |
@@ -32,12 +32,11 @@
 
 ## 📝About
 
-Ai Bot is a bot for Discord with the simple objective of simulating a chat conversation with a real person, in addition to bringing some features that make it extremely powerful and useful in everyday situations. With her, you can chat, ask questions, express your feelings, and much more. Your creativity is the limit.
+AI is a bot for Discord with the simple objective of simulating a chat conversation with a real person, in addition to bringing some features that make it extremely powerful and useful in everyday situations. With her, you can chat, ask questions, express your feelings, and much more. Your creativity is the limit.
 
 ## 💾Installation
 
-You can add Mary Jane to your discord server by accessing the link [Ai Bot - Invite guild](https://discord.com/api/oauth2/authorize?client_id=990769238841118740&permissions=0&redirect_uri=https%3A%2F%2Fmary-jane-website.vercel.app%2Fapi%2Fauth%2Fcallback%2Fdiscord&response_type=code&scope=applications.commands%20identify%20bot) or joining the [Ai Bot
-
+You can add AI to your discord server by accessing the link [AI Bot - Invite guild](https://discord.com/api/oauth2/authorize?client_id=990769238841118740&permissions=0&redirect_uri=https%3A%2F%2Fmary-jane-website.vercel.app%2Fapi%2Fauth%2Fcallback%2Fdiscord&response_type=code&scope=applications.commands%20identify%20bot) or joining the [AI Bot
 - Official server](https://discord.com/invite/AGfxJKmbKf) and interacting with her through commands.
 
 ## 💻Commands
@@ -59,7 +58,7 @@ You can add Mary Jane to your discord server by accessing the link [Ai Bot - Inv
 ## 💖Contributing
 
 Contributions are always welcome and help a lot.
-Visit [The perks of being a donor](https://mary-jane-website.vercel.app/), log in with your discord account and make a donation. This helps us keep the project active and constantly evolving, in addition to guaranteeing some bonuses such as a special role for donater users on the official server and the ability to execute commands directly in Mary Jane's DM.
+Visit [The perks of being a donor](https://mary-jane-website.vercel.app/), log in with your discord account and make a donation. This helps us keep the project active and constantly evolving, in addition to guaranteeing some bonuses such as a special role for donater users on the official server and the ability to execute commands directly in AI bot's DM.
 
 ## 📄License
 
@@ -69,11 +68,11 @@ This project is under license GPL-3.0 license. See [LICENSE.md](https://github.c
 
 #### How do I use the commands?
 
-You can use the commands using the prefix `/` followed by the command in any chat that Mary Jane is in.
+You can use the commands using the prefix `/` followed by the command in any chat that AI Bot is in.
 
-#### How does Mary Jane generate the answers?
+#### How does AI Bot generate the answers?
 
-Mary Jane makes use of artificial intelligence obtained from the OpenAI API and a refinement process to constantly improve.
+AI Bot makes use of artificial intelligence obtained from the OpenAI API and a refinement process to constantly improve.
 
 #### What information is stored in the database?
 
