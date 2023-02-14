@@ -6,7 +6,7 @@
 /node_modules
 
 #config deploy
-discloud.config
+.discloud.config
 firebaseService.json
 
 #PremiumGuild

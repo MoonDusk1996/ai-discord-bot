@@ -1,8 +1,8 @@
 <div align="center">
 
-![Mary Jane bot](https://github.com/MoonDusk1996/assets/blob/main/mary-jane-discord-bot/favicon.png)
+![Ai Bot](https://github.com/MoonDusk1996/ai-bot)
 
-# Mary Jane - Discord bot
+# Ai Bot - Discord bot
 
 | [About](#about)
 |
@@ -32,11 +32,13 @@
 
 ## 📝About
 
-Mary Jane is a bot for Discord with the simple objective of simulating a chat conversation with a real person, in addition to bringing some features that make it extremely powerful and useful in everyday situations. With her, you can chat, ask questions, express your feelings, and much more. Your creativity is the limit.
+Ai Bot is a bot for Discord with the simple objective of simulating a chat conversation with a real person, in addition to bringing some features that make it extremely powerful and useful in everyday situations. With her, you can chat, ask questions, express your feelings, and much more. Your creativity is the limit.
 
 ## 💾Installation
 
-You can add Mary Jane to your discord server by accessing the link [Mary Jane bot - Invite guild](https://discord.com/api/oauth2/authorize?client_id=990769238841118740&permissions=0&redirect_uri=https%3A%2F%2Fmary-jane-website.vercel.app%2Fapi%2Fauth%2Fcallback%2Fdiscord&response_type=code&scope=applications.commands%20identify%20bot) or joining the [Mary Jane bot - Official server](https://discord.com/invite/AGfxJKmbKf) and interacting with her through commands.
+You can add Mary Jane to your discord server by accessing the link [Ai Bot - Invite guild](https://discord.com/api/oauth2/authorize?client_id=990769238841118740&permissions=0&redirect_uri=https%3A%2F%2Fmary-jane-website.vercel.app%2Fapi%2Fauth%2Fcallback%2Fdiscord&response_type=code&scope=applications.commands%20identify%20bot) or joining the [Ai Bot
+
+- Official server](https://discord.com/invite/AGfxJKmbKf) and interacting with her through commands.
 
 ## 💻Commands
 
@@ -76,7 +78,6 @@ Mary Jane makes use of artificial intelligence obtained from the OpenAI API and 
 #### What information is stored in the database?
 
 Only non-sensitive and public information from donors is stored to apply the benefits. This includes Discord ID, Discord name, Discord avatar, and donation amount.
-
 
 ## 🔎References
 
