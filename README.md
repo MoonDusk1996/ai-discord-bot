@@ -36,8 +36,8 @@ AI is a bot for Discord with the simple objective of simulating a chat conversat
 
 ## 💾Installation
 
-You can add AI to your discord server by accessing the link [AI Bot - Invite guild](https://discord.com/api/oauth2/authorize?client_id=990769238841118740&permissions=0&redirect_uri=https%3A%2F%2Fmary-jane-website.vercel.app%2Fapi%2Fauth%2Fcallback%2Fdiscord&response_type=code&scope=applications.commands%20identify%20bot) or joining the [AI Bot
-- Official server](https://discord.com/invite/AGfxJKmbKf) and interacting with her through commands.
+You can add AI to your discord server by accessing the link [AI Bot - Invite guild](https://discord.com/api/oauth2/authorize?client_id=990769238841118740&permissions=0&redirect_uri=https%3A%2F%2Fmary-jane-website.vercel.app%2Fapi%2Fauth%2Fcallback%2Fdiscord&response_type=code&scope=applications.commands%20identify%20bot) or joining the 
+[AI Bot - Official server](https://discord.com/invite/AGfxJKmbKf) and interacting with her through commands.
 
 ## 💻Commands
 
